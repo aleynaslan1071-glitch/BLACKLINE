@@ -1,1 +1,250 @@
+/* ================================
+   BLACKLINE OS
+   Prototype 0.1
+================================ */
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #050708;
+    color: #d9e2e7;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+#game {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 50% 30%, #102027 0%, #050708 55%),
+        #050708;
+}
+
+/* ================================
+   TOP BAR
+================================ */
+
+.topbar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid #1b343c;
+    background: rgba(4, 9, 11, 0.95);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #e8f5f7;
+}
+
+.system-status {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6ed6a0;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #52d68b;
+    box-shadow: 0 0 10px #52d68b;
+}
+
+#clock {
+    font-family: monospace;
+    font-size: 14px;
+    color: #8ca3ab;
+}
+
+/* ================================
+   DESKTOP
+================================ */
+
+.desktop {
+    flex: 1;
+    padding: 50px 30px;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+}
+
+.welcome {
+    margin-bottom: 45px;
+}
+
+.classification {
+    display: inline-block;
+    padding: 7px 11px;
+    border: 1px solid #27444c;
+    color: #62858e;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.welcome h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    max-width: 650px;
+    color: #718890;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* ================================
+   APPLICATIONS
+================================ */
+
+.applications {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.app {
+    min-height: 135px;
+    border: 1px solid #1d3941;
+    background: rgba(9, 19, 23, 0.85);
+    color: #c8d8dc;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.app:hover {
+    border-color: #4d8d9a;
+    background: #0d2026;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.app:active {
+    transform: translateY(0);
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 18px;
+    filter: grayscale(0.4);
+}
+
+.app span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ================================
+   TASKBAR
+================================ */
+
+.taskbar {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-top: 1px solid #1b343c;
+    background: #030607;
+    color: #526970;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.taskbar strong {
+    color: #78aeb9;
+}
+
+/* ================================
+   MOBILE / TABLET
+================================ */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 58px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    #clock {
+        font-size: 12px;
+    }
+
+    .desktop {
+        padding: 35px 18px;
+    }
+
+    .welcome {
+        margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+    .welcome p {
+        font-size: 14px;
+    }
+
+    .applications {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .app {
+        min-height: 120px;
+        padding: 18px;
+    }
+
+    .icon {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .taskbar {
+        padding: 0 15px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .applications {
+        grid-template-columns: 1fr;
+    }
+
+    .app {
+        min-height: 90px;
+    }
+}
